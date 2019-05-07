@@ -41,6 +41,7 @@ class Header extends Component {
               in = {this.state.focused}
               timeout={200}
               classNames = "slide"  
+              
             >
               <NavSearch 
                 className = {this.state.focused ? 'focused' : ''} 
