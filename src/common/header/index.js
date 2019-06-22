@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch,  SearchWrapper, Addition, Button } from './style'
@@ -21,7 +21,6 @@ const Header = ( props ) => {
               in = {props.focused}
               timeout={200}
               classNames = "slide"  
-              
             >
               <NavSearch 
                 className = {props.focused ? 'focused' : ''} 
@@ -44,7 +43,7 @@ const Header = ( props ) => {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.focused
+    focused: state.header.focused
   }
 }
 
