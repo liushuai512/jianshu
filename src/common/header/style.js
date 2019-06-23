@@ -29,7 +29,7 @@ export const Nav = styled.div`
 export const NavItem = styled.div`
   line-height: 56px;
   padding: 0 15px;
-  font-siae: 17px;
+  font-size: 17px;
   color: #333;
   &.left {
     float: left
@@ -97,10 +97,51 @@ export const SearchWrapper = styled.div`
   }
 `
 
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 56px; 
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba( 0, 0, 0, .2 )
+`
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696
+`
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+`
+
+export const SearchInfoList = styled.span`
+  overflow: hidden;
+  display: block;
+  height:64px;
+`
+
+export const SearchInfoItem = styled.span`
+  display: block;
+  float: left;
+  font-size: 12px;
+  padding: 0 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
+`
+
 export const Addition = styled.div`
   position: absolute;
   top: 0;
-  right: 0; 
+  right: 10px; 
   height: 56px;
 `
 
@@ -112,7 +153,7 @@ export const Button = styled.div`
   margin-left: 20px;
   border-radius: 19px;
   border: 1px solid #ec6149;
-  font-siae: 14px;
+  font-size: 14px;
   box-sizing: border-box;
   &.reg{
     color: #ec6149
