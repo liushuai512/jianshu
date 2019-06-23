@@ -20,7 +20,8 @@ import { IconfontStyle } from '../../statics/iconfont/iconfont'
 
 class Header extends Component {
   getListArea(){
-    if (this.props.focused) {
+    const { focused, list } = this.props;
+    if (focused) {
       return (
         <SearchInfo>
           <SearchInfoTitle>
@@ -31,7 +32,7 @@ class Header extends Component {
           </SearchInfoTitle>
           <SearchInfoList>
             {
-              this.props.list.map((item) => {
+              list.map((item) => {
                 return <SearchInfoItem key = {item}>{item}</SearchInfoItem>
               })
             }
@@ -43,8 +44,9 @@ class Header extends Component {
     }
   }
   render () {
+    const { focused, handleInputFocus, handleInputblur } = this.props;
     return (
-    <HeaderWrapper>
+      <HeaderWrapper>
         <IconfontStyle/>
         <Logo/>
         <Nav>
@@ -56,17 +58,17 @@ class Header extends Component {
           </NavItem>
           <SearchWrapper>
             <CSSTransition
-              in = {this.props.focused}
+              in = {focused}
               timeout={200}
               classNames = "slide"  
             >
               <NavSearch 
-                className = {this.props.focused ? 'focused' : ''} 
-                onFocus = {this.props.handleInputFocus}
-                onBlur = {this.props.handleInputblur}
+                className = {focused ? 'focused' : ''} 
+                onFocus = {handleInputFocus}
+                onBlur = {handleInputblur}
                 ></NavSearch>
             </CSSTransition>
-            <i className = {this.props.focused ? 'focused iconfont' : 'iconfont'}>&#xe637;</i>
+            <i className = {focused ? 'focused iconfont' : 'iconfont'}>&#xe637;</i>
             { this.getListArea() }
           </SearchWrapper>
           
@@ -77,7 +79,7 @@ class Header extends Component {
           <Button className='reg'>注册</Button>
         </Addition>
       </HeaderWrapper>
-  )
+    )
   }
 }
 

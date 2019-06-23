@@ -7,17 +7,14 @@ const defaultStore = fromJS({
 });
 
 export default ( state = defaultStore, action) => {
-  if(action.type === actionCreators.SEARCH_FOCUS){
-    return state.set('focused', true)
+  switch(action.type) {
+    case actionCreators.SEARCH_FOCUS:
+      return state.set('focused', true);
+    case actionCreators.SEARCH_BLUR:
+      return state.set('focused', false);
+    case actionCreators.CHANGE_LIST:
+      return state.set('list', action.data);
+    default:
+      return state;
   }
-
-  if(action.type === actionCreators.SEARCH_BLUR){
-    return state.set('focused', false)
-  }
-
-  if(action.type === actionCreators.CHANGE_LIST){
-    return state.set('list', action.data)
-  }
-  
-  return state; 
 }
