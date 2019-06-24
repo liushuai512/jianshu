@@ -13,6 +13,7 @@ class Topic extends Component {
                 <img 
                   className='item-img' 
                   src={item.get('imgUrl')} 
+                  alt =''
                 />
                 {item.get('title')}
               </TopicItem>
