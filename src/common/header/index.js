@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
 import { 
   HeaderWrapper, 
+  HeaderNav,
   Logo, 
   Nav, 
   NavItem, 
@@ -57,37 +58,40 @@ class Header extends PureComponent {
     const { focused, handleInputFocus, handleInputblur, list } = this.props;
     return (
       <HeaderWrapper>
-        <IconfontStyle/>
-        <Logo/>
-        <Nav>
-          <NavItem className='left active'>首页</NavItem>
-          <NavItem className='left'>下载App</NavItem>
-          <NavItem className='right'>登陆</NavItem>   
-          <NavItem className='right'>
-            <i className='iconfont'>&#xe636;</i>
-          </NavItem>
-          <SearchWrapper>
-            <CSSTransition
-              in = {focused}
-              timeout={200}
-              classNames = "slide"  
-            >
-              <NavSearch 
-                className = {focused ? 'focused' : ''} 
-                onFocus = {() => handleInputFocus(list)}
-                onBlur = {handleInputblur}
-                ></NavSearch>
-            </CSSTransition>
-            <i className = {focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe637;</i>
-            { this.getListArea() }
-          </SearchWrapper>
-          
-        </Nav>
-        <Addition>
-          
-          <Button className='writting'><i className="iconfont">&#xe62d;</i>写文章</Button>
-          <Button className='reg'>注册</Button>
-        </Addition>
+        <HeaderNav>
+          <IconfontStyle/>
+          <Logo/>
+          <Nav>
+            <NavItem className='left active'><i className='iconfont'>&#xe67b;</i>首页</NavItem>
+            <NavItem className='left'>下载App</NavItem>
+            <NavItem className='right'>登陆</NavItem>   
+            <NavItem className='right'>
+              <i className='iconfont'>&#xe636;</i>
+            </NavItem>
+            <SearchWrapper>
+              <CSSTransition
+                in = {focused}
+                timeout={200}
+                classNames = "slide"  
+              >
+                <NavSearch 
+                  className = {focused ? 'focused' : ''} 
+                  onFocus = {() => handleInputFocus(list)}
+                  onBlur = {handleInputblur}
+                  ></NavSearch>
+              </CSSTransition>
+              <i className = {focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe637;</i>
+              { this.getListArea() }
+            </SearchWrapper>
+            
+          </Nav>
+          <Addition>
+            
+            <Button className='writting'><i className="iconfont">&#xe62d;</i>写文章</Button>
+            <Button className='reg'>注册</Button>
+          </Addition>
+        </HeaderNav>
+        
       </HeaderWrapper>
     )
   }
