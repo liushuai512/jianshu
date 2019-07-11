@@ -14,7 +14,7 @@ export const HeaderNav = styled.div`
   height: 56px;
 `
 
-export const Logo = styled.a.attrs({href: '/'})`
+export const Logo = styled.div`
   position: absolute;
   top: 0;
   left: 0;  
