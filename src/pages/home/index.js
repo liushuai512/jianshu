@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Topic from './components/Topic';
 import List from './components/List';
 import Recommend from './components/Recommend';
@@ -10,13 +10,27 @@ import {
   HomeWrapper,
   HomeLeft,
   HomeRight,
+  BackTo
 } from './style';
 
 
-class Home extends Component {
+class Home extends PureComponent {
 
   componentDidMount(){
-    this.props.changeHomeData()
+    this.props.changeHomeData();
+    this.bindEvents();
+  }
+
+  componentWillMount(){
+    window.removeEventListener('scroll',this.props.changeScroolTopShow)
+  }
+
+  handleScrollTop(){
+    window.scrollTo(0,0)
+  }
+
+  bindEvents(){
+    window.addEventListener('scroll',this.props.changeScroolTopShow)
   }
 
   render(){
@@ -31,6 +45,10 @@ class Home extends Component {
           <Recommend />
           <Writer />
         </HomeRight>
+        {
+          this.props.showScroll?<BackTo onClick={this.handleScrollTop}>回到顶部</BackTo>:''
+        }
+        
       </HomeWrapper>
     )
   }
@@ -40,6 +58,18 @@ const mapDispatch = (dispatch) => ({
   changeHomeData(){
     const action = actionCreators.getHomeInfo();
     dispatch(action);
+  },
+  changeScroolTopShow(){
+    if(document.documentElement.scrollTop > 400){
+      dispatch(actionCreators.toggleTopShow(true));
+    }else{
+      dispatch(actionCreators.toggleTopShow(false));
+    }
   }
 })
-export default connect(null,mapDispatch)(Home);
+
+const mapState = (state) => ({
+  showScroll: state.getIn(['home', 'showScroll'])
+})
+
+export default connect(mapState,mapDispatch)(Home);

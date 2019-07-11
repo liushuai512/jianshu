@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
@@ -18,7 +18,7 @@ import {
   Button } from './style'
 import { IconfontStyle } from '../../statics/iconfont/iconfont'
 
-class Header extends Component {
+class Header extends PureComponent {
   getListArea(){
     const { focused, list, page, totalPage, mouseIn, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
     const newList = list.toJS();
