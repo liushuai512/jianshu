@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { DetailWrapper, Header, Content } from './style';
-
+import { actionCreators } from './store'
 
 class Detail extends PureComponent {
+
   render(){
     return (
       <DetailWrapper>
@@ -15,6 +16,9 @@ class Detail extends PureComponent {
       </DetailWrapper>
     )
   }
+  componentDidMount(){
+    this.props.getDetail()
+  }
 }
 
 const mapState = (state) => ({
@@ -22,4 +26,10 @@ const mapState = (state) => ({
   content: state.getIn(['detail', 'content'])
 })
 
-export default connect(mapState, null)(Detail);
+const mapDispatch = (dispatch) => ({
+  getDetail(){
+    dispatch(actionCreators.getDetail())
+  }
+})
+
+export default connect(mapState, mapDispatch)(Detail);
