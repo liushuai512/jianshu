@@ -1,0 +1,18 @@
+//import * as actionCreators from './actionTypes'
+import { fromJS } from 'immutable'
+import * as constants from './constants';
+
+const defaultStore = fromJS({
+  title:'茅塞顿开——量子科学，已经触及到了灵魂世界!',
+  content: '<img alt="" src="https://upload-images.jianshu.io/upload_images/15032395-60ceb8fe64ee050a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp"/><p>这让研究量子科学的物理学家们一头雾水，这是因为，量子科学，已经触及到了灵魂世界！</p><p>灵魂，即思想意识。人类对物质世界的科学研究已经很透彻了，但是对于灵魂世界，才刚刚开始。灵魂就是传说中的不可分割的量子，独立而恒在的个体!</p>'
+})
+
+
+export default ( state = defaultStore, action) => {
+  switch(action.type) {
+    
+      
+    default:
+      return state;
+  }
+}
