@@ -12,7 +12,10 @@ class List extends PureComponent {
         {
           list.map((item, index) => {
             return (
-              <Link key={index} to='/detail'>
+              //动态获取路由
+              <Link key={index} to={'/detail/' + item.get('id')}>
+              {/* //路径传参
+              //<Link key={index} to={'/detail?id=' + item.get('id')}> */}
                 <ListItem >
                   <img className='pic' src={item.get('imgUrl')} alt=''/>
                   <ListInfo>

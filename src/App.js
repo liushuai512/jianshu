@@ -14,7 +14,10 @@ function App() {
         <div>
           <Header/>
           <Route path='/' exact component = {Home}></Route>
-          <Route path='/detail' exact component = {Detail}></Route>
+          {/* 路径传参设置 */}
+          {/* <Route path='/detail' exact component = {Detail}></Route> */}
+          {/* 动态获取路由设置 */}
+          <Route path='/detail/:id' exact component = {Detail}></Route>
         </div>
       </BrowserRouter>
     </Provider>
