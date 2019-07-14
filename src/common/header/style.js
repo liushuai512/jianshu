@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.div`
 `
 
 export const HeaderNav = styled.div`
+  z-index: 1;
   max-width: 1440px;
   min-width: 768px;
   margin: 0 auto;
