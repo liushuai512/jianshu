@@ -12,6 +12,6 @@ export const getDetail = (id) => {
     axios.get('/api/detail.json?id='+id).then((res)=>{
       const result = res.data.data;
       dispatch(changeDetail(result.title,result.content))
-    })
+    }).catch(alert('你已经请求失败'))
   }
 }
